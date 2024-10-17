@@ -10,8 +10,11 @@ public class Main {
         contactApp.addContact(contact2);
         contactApp.addContact(contact3);
 
-        contactApp.removeContact("Joe");
-        contactApp.removeContact("Alen");
-        System.out.println(contactApp.contacts.size());
+        contactApp.removeContact("Max");
+
+        contactApp.findByName("Max");
+        contactApp.findByName("Alen");
+
+        contactApp.updateName("Alen", "Java");
     }
 }
