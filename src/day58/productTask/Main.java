@@ -6,15 +6,9 @@ public class Main {
         Product headphone = new Product("Headphone", 50, 30);
         Product smartphone = new Product("Smartphone", 800, 15);
 
-
-        laptop.setPrice(-500);
-        laptop.setQuantity(0);
-        laptop.restock(20);
-        laptop.purchase(15);
-
-        headphone.purchase(30);
-
-        smartphone.restock(-50);
+        laptop.setPrice(1000);
+        headphone.setQuantity(5);
+        smartphone.setName("");
 
 
     }
