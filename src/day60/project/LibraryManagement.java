@@ -1,29 +1,55 @@
 package day60.project;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class LibraryManagement {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         Library library = new Library();
-        Book book1 = new Book(1, "Book1", 2020,
-                "Author1");
-        Book book2 = new Book(2, "Book2", 2010,
-                "Author2");
-        Book book3 = new Book(3, "Book3", 2010,
-                "Author3");
-        DVD dvd1 = new DVD(4, "DVD1", 2019,
-                "Director1");
-        DVD dvd2 = new DVD(5, "DVD2", 2013,
-                "Director2");
 
-        library.addItem(book1);
-        library.addItem(book2);
-        library.addItem(book3);
-        library.addItem(dvd1);
-        library.addItem(dvd2);
+        boolean cont = true;
+        System.out.println("Menu options:\n" +
+                "1. Add a Book\n" +
+                "2. Add a DVD\n" +
+                "3. Find LibraryItem\n" +
+                "4. Remove LibraryItem\n" +
+                "5. Update LibraryItem\n" +
+                "6. Stop\n");
+        while(cont){
+            System.out.print("Choose: ");
+            int choice = scanner.nextInt();
+            switch (choice){
+                case 1 -> {
+                    System.out.println("Enter id: ");
+                    int id = scanner.nextInt();
+                    System.out.println("Enter title: ");
+                    scanner.nextLine();
+                    String title = scanner.nextLine();
+                    System.out.println("Enter year: ");
+                    int year = scanner.nextInt();
+                    System.out.println("Enter author:");
+                    scanner.nextLine();
+                    String author = scanner.nextLine();
 
-        library.updateItem(5,"Harry Potter", 2015);
-        library.deleteItem(9);
-        library.findItem(1);
+                    Book book = new Book(id, title, year, author);
+                    library.addItem(book);
+                }
+                case 2 -> {}
+                case 3 -> {
+                    System.out.println("Enter id to find: ");
+                    int id = scanner.nextInt();
+                    for (LibraryItem item : library.getItems()) {
+                        if(item.getId() == id){
+                            System.out.println(item);
+                            break;
+                        }
+                    }
+                }
+                case 6 -> {
+                    cont = false;
+                }
+            }
+        }
+
     }
 }

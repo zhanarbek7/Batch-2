@@ -1,7 +1,7 @@
 package day40;
 
 public class Car {
-    String model;
+    public String model;
     int year;
 
     public void displayCarInfo(){
